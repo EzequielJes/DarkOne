@@ -124,7 +124,7 @@ const iniciar = async(auth) => {
 				client.groupRemove(from, [sender])
 			}
 			
-			const botMenu = const botMenu = `✿👋🏻ꜱᴀʟᴜᴅᴏꜱ @${senderNumber}✿
+			const botMenu = `✿👋🏻ꜱᴀʟᴜᴅᴏꜱ @${senderNumber}✿
 
 ❂ᴛʜᴇ ᴅᴀʀᴋ ᴏɴᴇ ᴇꜱ ᴜɴ ᴀꜱɪꜱᴛᴇɴᴛᴇ ᴠɪʀᴛᴜᴀʟ ᴅᴇ ᴡʜᴀᴛꜱᴀᴘᴘ Qᴜᴇ ᴛᴇ ꜰᴀᴄɪʟɪᴛᴀʀᴀ ᴍᴜᴄʜᴀꜱ ᴄᴏꜱᴀꜱ❂
 
