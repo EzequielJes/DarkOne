@@ -77,7 +77,7 @@ const iniciar = async(auth) => {
                         const soyYo = client.user.jid
                         const botNumber = client.user.jid.split('@')[0]
                         const ownerNumber = ['595995660558', '595994230885']
-                        const isGroup = from.endsWith('@')
+                        const isGroup = from.endsWith('@g.us')
                         const sender = mek.key.fromMe ? client.user.jid : mek.participant
 			const senderNumber = sender.split('@')[0]
                         const conts = mek.key.fromMe ? client.user.jid : client.contacts[sender] || { notify: jid.replace(/@.+/, '') }
