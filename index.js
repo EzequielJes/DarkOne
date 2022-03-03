@@ -101,8 +101,15 @@ const iniciar = async(auth) => {
 			const isQuotedSticker = type === 'extendedTextMessage' && content.includes('stickerMessage')
 			const isQuotedAudio = type === 'extendedTextMessage' && content.includes('audioMessage')
 			
+			const fakeBot = {
+				title: `${botName} | ℳℛ. ᎶᎾℒⅅ`,
+				body: '',
+				mediaUrl: 'https://hentaila.com/',
+				thumbnail: fs.readFileSync('./reply.jpg')
+			}
+			
 			const reply = async(teks) => {
-				await client.sendMessage(from, teks, text, {quoted: mek, contextInfo: {mentionedJid: [sender]}})
+				await client.sendMessage(from, teks, text, {quoted: mek, contextInfo: {mentionedJid: [sender], externalAdReply: fakeBot}})
 			}
 			
 			const ytmp3 = (link) => {
@@ -115,7 +122,7 @@ const iniciar = async(auth) => {
 					exec(`ffmpeg -i "./${nameMp4}" "./${nameMp3}"`, (err) => {
 						fs.unlinkSync(`./${nameMp4}`)
 						if (err) return
-						client.sendMessage(from, fs.readFileSync(`./${nameMp3}`), audio, {quoted: mek, mimetype: 'audio/mp4'})
+						client.sendMessage(from, fs.readFileSync(`./${nameMp3}`), audio, {quoted: mek, mimetype: 'audio/mp4', contextInfo: {externalAdReply: fakeBot}})
 						fs.unlinkSync(`./${nameMp3}`)
 					})
 				})
@@ -191,7 +198,7 @@ if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0)
 		reply('Hubo un error al crear su sticker')
 	})
 		.on('end', function () {
-		client.sendMessage(from, fs.readFileSync(ran), sticker, {quoted: mek})
+		client.sendMessage(from, fs.readFileSync(ran), sticker, {quoted: mek, contextInfo: {externalAdReply: fakeBot}})
 		fs.unlinkSync(media)
 		fs.unlinkSync(ran)
 	})
@@ -211,7 +218,7 @@ if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0)
 		reply('Hubo un error al crear su sticker')
 	})
 		.on('end', function () {
-		client.sendMessage(from, fs.readFileSync(ran), sticker, {quoted: mek})
+		client.sendMessage(from, fs.readFileSync(ran), sticker, {quoted: mek, contextInfo: {externalAdReply: fakeBot}})
 		fs.unlinkSync(media)
 		fs.unlinkSync(ran)
 	})
@@ -232,7 +239,7 @@ var rano = '666.ogg'
 dtt.length > 300
 ? reply('Texto demaciado largo')
 : gtts.save(ranm, dtt, function() {
-client.sendMessage(from, fs.readFileSync(ranm), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender]}})
+client.sendMessage(from, fs.readFileSync(ranm), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: fakeBot}})
 fs.unlinkSync(ranm)
 })
 break
@@ -246,7 +253,7 @@ var teks = `${botName} Youtube
 Titulo: ${play.all[0].title}
 Duracion: ${play.all[0].timestamp}
 Link: ${play.all[0].url}`
-client.sendMessage(from, buffer, image, {quoted: mek, caption: teks})
+client.sendMessage(from, buffer, image, {quoted: mek, caption: teks, contextInfo: {externalAdReply: fakeBot}})
 ytmp3(play.all[0].url)
 break
 
