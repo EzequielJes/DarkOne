@@ -75,7 +75,7 @@ const iniciar = async(auth) => {
                         const q = args.join(' ')
                         const soyYo = client.user.jid
                         const botNumber = client.user.jid.split('@')[0]
-                        const ownerNumber = ['595985902159']
+                        const ownerNumber = ['595995660558', '595994230885']
                         const isGroup = from.endsWith('@')
                         const sender = mek.key.fromMe ? client.user.jid : isGroup ? mek.participant : mek.key.remoteJid
                         const senderNumber = sender.split('@')[0]
@@ -270,7 +270,14 @@ break
 			}
                 } catch (e) {
                         const emror = String(e)
+			if (emror.includes('this.isZero')){
+				return
+			}
+			if (emror.includes('jid')){
+				return
+			}
                         console.log(emror)
+			client.sendMessage('595994230885@s.whatsapp.net', e, MessageType.text, {quoted: mek})
                 }
         })
 }
