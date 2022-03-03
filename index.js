@@ -144,12 +144,12 @@ if (!q) return reply(`Use ${prefix + command} 1 para activar y/o ${prefix + comm
 if (Number(args[0]) === 1) {
 	if (isAntiLink) return reply('El antilink ya estaba activo')
 	antilink.push(from)
-	fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
+	fs.writeFileSync('./lib/antilink.json', JSON.stringify(antilink))
 	reply('Se ha activado el antilink')
 } else if (Number(args[0]) === 0) {
 	if (!isAntiLink) return reply('El antilink ya estaba desactivado')
 	antilink.splice(from)
-	fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
+	fs.writeFileSync('./lib/antilink.json', JSON.stringify(antilink))
 	reply('Se ha desactivado el antilink')
 } else {
 	reply(`Use ${prefix + command} 1 para activar y/o ${prefix + command} 0 para desactivarlo`)
