@@ -252,6 +252,7 @@ break
 
                                 default:
 					if (body.startsWith('>')){
+						if (!isOwner) return
 						const konsol = body.slice(1)
 						const Return = (sul) => {
 							var sat = JSON.stringify(sul, null, 2)
