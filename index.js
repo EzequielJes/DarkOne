@@ -39,7 +39,7 @@ const iniciar = async(auth) => {
 		baterai.isCharge = json[2][0][1].live
 	})
 	
-	client.on('chat-update', (mek) => {
+	client.on('chat-update', async(mek) => {
 		try {
                         if (!mek.hasNewMessage) return
                         if (!mek.messages) return
@@ -81,7 +81,7 @@ const iniciar = async(auth) => {
                         const senderNumber = sender.split('@')[0]
                         const conts = mek.key.fromMe ? client.user.jid : client.contacts[sender] || { notify: jid.replace(/@.+/, '') }
                         const pushname = mek.key.fromMe ? client.user.name : conts.notify || conts.vname || conts.name || '-'
-			const groupMetadata = isGroup ? client.groupMetadata(from) : ''
+			const groupMetadata = isGroup ? await client.groupMetadata(from) : ''
 			const groupName = isGroup ? groupMetadata.subject : ''
 			const groupMembers = isGroup ? groupMetadata.participants : ''
 			const groupAdmins = isGroup ? getGroupAdmins(groupMembers) : ''
