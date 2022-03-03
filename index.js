@@ -1,7 +1,16 @@
 const { WAConnection, MessageType } = require('@adiwajshing/baileys')
+const ffmpeg = require('fluent-ffmpeg')
 const fs = require('fs')
 const util = require('util')
 
+const antilink = JSON.parse(fs.readFileSync('./lib/antilink.json'))
+const { getBuffer, getGroupAdmins } = require('./lib/functions')
+
+var baterai = {
+battery: '' || 'undefined',
+isCharge: '' || false
+}
+const botName = 'Dark One'
 const prefix = '.'
 
 const iniciar = async(auth) => {
@@ -9,6 +18,7 @@ const iniciar = async(auth) => {
         
         client.logger.level = 'warn'
 	client.version = [2, 2143, 3]
+	client.browserDescription = [ 'The Dark One', '', '3.0' ]
 	
 	client.on('qr', () => console.log('Escanee el codigo qr'))
 	
@@ -19,6 +29,13 @@ const iniciar = async(auth) => {
 	
 	await client.connect({timeoutMs: 30 * 1000})
 	fs.writeFileSync(auth, JSON.stringify(client.base64EncodedAuthInfo(), null, '\t'))
+	
+	client.on('CB:action,,battery', json => {
+		const battery = json[2][0][1].value
+		const persenbat = parseInt(battery)
+		baterai.battery = `${persenbat}%`
+		baterai.isCharge = json[2][0][1].live
+	})
 	
 	client.on('chat-update', (mek) => {
 		try {
@@ -57,38 +74,169 @@ const iniciar = async(auth) => {
                         const soyYo = client.user.jid
                         const botNumber = client.user.jid.split('@')[0]
                         const ownerNumber = ['595985902159']
-                        const isGroup = from.endsWith('120363022044493444@g.us')
+                        const isGroup = from.endsWith('@')
                         const sender = mek.key.fromMe ? client.user.jid : isGroup ? mek.participant : mek.key.remoteJid
                         const senderNumber = sender.split('@')[0]
                         const conts = mek.key.fromMe ? client.user.jid : client.contacts[sender] || { notify: jid.replace(/@.+/, '') }
                         const pushname = mek.key.fromMe ? client.user.name : conts.notify || conts.vname || conts.name || '-'
-                        
+			const groupMetadata = isGroup ? await client.groupMetadata(from) : ''
+			const groupName = isGroup ? groupMetadata.subject : ''
+			const groupMembers = isGroup ? groupMetadata.participants : ''
+			const groupAdmins = isGroup ? getGroupAdmins(groupMembers) : ''
+			
                         const isMe = botNumber.includes(senderNumber)
                         const isOwner = ownerNumber.includes(senderNumber)
+			const isBotAdmin = groupAdmins.includes(client.user.jid)
+			const isGroupAdmins = groupAdmins.includes(sender) || false
+			
+			const isAntiLink = isGroup ? antilink.includes(from) : false
+			
+			const isQuotedMsg = type === 'extendedTextMessage' && content.includes('textMessage')
+			const isMedia = (type === 'imageMessage' || type === 'videoMessage')
+			const isQuotedImage = type === 'extendedTextMessage' && content.includes('imageMessage')
+			const isQuotedVideo = type === 'extendedTextMessage' && content.includes('videoMessage')
+			const isQuotedSticker = type === 'extendedTextMessage' && content.includes('stickerMessage')
+			const isQuotedAudio = type === 'extendedTextMessage' && content.includes('audioMessage')
+			
+			const reply = async(teks) => {
+				await client.sendMessage(from, teks, text, {quoted: mek, contextInfo: {mentionedJid: [sender]}})
+			}
+			
+			if (isAntiLink && body.includes('chat.whatsapp.com/') && !isGroupAdmins && isBotAdmin){
+				client.groupRemove(from, [sender])
+			}
+			
+			const botMenu = const botMenu = `✿👋🏻ꜱᴀʟᴜᴅᴏꜱ @${senderNumber}✿
+
+❂ᴛʜᴇ ᴅᴀʀᴋ ᴏɴᴇ ᴇꜱ ᴜɴ ᴀꜱɪꜱᴛᴇɴᴛᴇ ᴠɪʀᴛᴜᴀʟ ᴅᴇ ᴡʜᴀᴛꜱᴀᴘᴘ Qᴜᴇ ᴛᴇ ꜰᴀᴄɪʟɪᴛᴀʀᴀ ᴍᴜᴄʜᴀꜱ ᴄᴏꜱᴀꜱ❂
+
+"𝙽𝚊𝚍𝚊 𝚝𝚒𝚎𝚗𝚎 𝚟𝚒𝚍𝚊 𝚖á𝚜 𝚊𝚕𝚕á 𝚍𝚎 𝚕𝚘𝚜 𝙾𝚛í𝚐𝚎𝚗𝚎𝚜"
+
+⚜️★𝐂𝐑𝐄𝐃𝐈𝐓𝐎𝐒★⚜️
+©️InkyGod
+
+⊰᯽⊱𝙼𝚎𝚗𝚞 𝚍𝚎 𝚃𝚑𝚎 𝙳𝚊𝚛𝚔 𝙾𝚗𝚎⊰᯽⊱
+
+📂᯽𝐆𝐑𝐔𝐏𝐎𝐒᯽
+■ ${prefix}antilink <0/1>
+
+🌄᯽𝐌𝐄𝐃𝐈𝐀᯽
+■ ${prefix}sticker
+■ ${prefix}tts <idioma> <texto>
+
+📥᯽𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀𝐒᯽
+■ ${prefix}play
+
+           🔱
+"𝚂𝚊𝚗𝚝𝚒𝚏𝚒𝚌𝚊𝚍𝚘 𝚜𝚎𝚊𝚗 𝚕𝚘𝚜 𝙾𝚛𝚊𝚒𝚜"`
                         
                         switch (command) {
 
+case 'menu':
+reply(botMenu)
+break
 
+case 'antilink':
+if (!isGroup) return reply('Comando solo para grupos')
+if (!isBotAdmin) return reply('El bot necesita ser admin')
+if (!isGroupAdmins) return reply('Necesitas ser admin')
+if (!q) return reply(`Use ${prefix + command} 1 para activar y/o ${prefix + command} 0 para desactivarlo`)
+if (Number(args[0]) === 1) {
+	if (isAntiLink) return reply('El antilink ya estaba activo')
+	antilink.push(from)
+	fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
+	reply('Se ha activado el antilink')
+} else if (Number(args[0]) === 0) {
+	if (!isAntiLink) return reply('El antilink ya estaba desactivado')
+	antilink.splice(from)
+	fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
+	reply('Se ha desactivado el antilink')
+} else {
+	reply(`Use ${prefix + command} 1 para activar y/o ${prefix + command} 0 para desactivarlo`)
+}
+break
+
+case 's':
+case 'stiker':
+case 'sticker':
+if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+	var encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+	var media = await client.downloadAndSaveMediaMessage(encmedia)
+	var ran = '666.webp'
+	await ffmpeg(`./${media}`)
+		.input(media)
+		.on('start', function (cmd) {
+	})
+		.on('error', function (err) {
+		fs.unlinkSync(media)
+		reply('Hubo un error al crear su sticker')
+	})
+		.on('end', function () {
+		client.sendMessage(from, fs.readFileSync(ran), sticker, {quoted: mek})
+		fs.unlinkSync(media)
+		fs.unlinkSync(ran)
+	})
+		.addOutputOptions([`-vcodec`, `libwebp`, `-vf`, `scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
+		.toFormat('webp')
+		.save(ran)
+} else if ((isMedia && mek.message.videoMessage.seconds < 11 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.seconds < 11) && args.length == 0) {
+	var encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+	var media = await client.downloadAndSaveMediaMessage(encmedia)
+	var ran = '666.webp'
+	await ffmpeg(`./${media}`)
+		.inputFormat(media.split('.')[1])
+		.on('start', function (cmd) {
+	})
+		.on('error', function (err) {
+		fs.unlinkSync(media)
+		reply('Hubo un error al crear su sticker')
+	})
+		.on('end', function () {
+		client.sendMessage(from, fs.readFileSync(ran), sticker, {quoted: mek})
+		fs.unlinkSync(media)
+		fs.unlinkSync(ran)
+	})
+		.addOutputOptions([`-vcodec`, `libwebp`, `-vf`, `scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
+		.toFormat('webp')
+		.save(ran)
+} else {
+	reply(`Usa ${prefix + command} tageando un archivo media`)
+}
+break
+
+case 'tts':
+if (!q) return reply(`Usa ${prefix + command} <idioma> <texto>`)
+const gtts = require('./lib/gtts')(args[0])
+var dtt = body.slice(8)
+var ranm = '666.mp3'
+var rano = '666.ogg'
+dtt.length > 300
+? reply('Texto demaciado largo')
+: gtts.save(ranm, dtt, function() {
+client.sendMessage(from, fs.readFileSync(ranm), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender]}})
+fs.unlinkSync(ranm)
+})
+break
 
                                 default:
                                         if (body.startsWith('>')){
-                                          if (!isOwner) return
-                                          const konsol = body.slice(1)
-                                          const Return = (sul) => {
-                                            var sat = JSON.stringify(sul, null, 2)
-                                            let bang = util.format(sat)
-                                            if (sat == undefined){
-                                              bang = util.format(sul)
-                                            }
-                                            return reply(bang)
-                                          }
-                                          try {
-                                            reply(util.format(eval(`;(async () => {${konsol}})()`)))
-                                          } catch(e){
-                                            reply(String(e))
-                                          }
-                                        }
-                        }
+						if (!isOwner) return
+						const konsol = body.slice(1)
+						const Return = (sul) => {
+							var sat = JSON.stringify(sul, null, 2)
+							let bang = util.format(sat)
+							if (sat == undefined){
+								bang = util.format(sul)
+							}
+							return reply(bang)
+						}
+						try {
+							reply(util.format(eval(`;(async () => {${konsol}})()`)))
+						} catch(e){
+							reply(String(e))
+						}
+					}
+			}
                 } catch (e) {
                         const emror = String(e)
                         console.log(emror)
