@@ -1,4 +1,5 @@
 const { WAConnection, MessageType } = require('@adiwajshing/baileys')
+const { exec } = require('child_process')
 const ffmpeg = require('fluent-ffmpeg')
 const fs = require('fs')
 const util = require('util')
@@ -240,7 +241,7 @@ case 'play':
 if (!q) return reply(`Usa ${prefix + command} <text>`)
 var play = await yts(q)
 var buffer = await getBuffer(play.all[0].image)
-var teks = `➫ ${botName} Youtube
+var teks = `${botName} Youtube
 
 Titulo: ${play.all[0].title}
 Duracion: ${play.all[0].timestamp}
