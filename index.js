@@ -78,7 +78,7 @@ const iniciar = async(auth) => {
                         const ownerNumber = ['595995660558', '595994230885']
                         const isGroup = from.endsWith('@')
                         const sender = mek.key.fromMe ? client.user.jid : isGroup ? mek.participant : mek.key.remoteJid
-                        const senderNumber = sender.split('@')[0]
+			const senderNumber = sender.split('@')[0]
                         const conts = mek.key.fromMe ? client.user.jid : client.contacts[sender] || { notify: jid.replace(/@.+/, '') }
                         const pushname = mek.key.fromMe ? client.user.name : conts.notify || conts.vname || conts.name || '-'
 			const groupMetadata = isGroup ? await client.groupMetadata(from) : ''
@@ -250,25 +250,22 @@ ytmp3(q)
 break
 
                                 default:
-if (body.startsWith('>')){
-if (!isOwner) return
-konsol = body.slice(1)
-Return = (sul) => {
-sat = JSON.stringify(sul, null, 2)
-bang = util.format(sat)
-if (sat == undefined){
-bang = util.format(sul)
-}
-return reply(bang)
-}
-try {
-reply(`${util.format(eval(`;(async () => {
-${konsol}
-})()`))}`)
-} catch(e){
-reply(`${String(e)}`)
-}
-}
+					if (body.startsWith('>')){
+						const konsol = body.slice(1)
+						const Return = (sul) => {
+							var sat = JSON.stringify(sul, null, 2)
+							let bang = util.format(sat)
+							if (sat == undefined){
+								bang = util.format(sul)
+							}
+							return reply(bang)
+						}
+						try {
+							reply(`${util.format(eval(`;(async () => {${konsol}})()`))}`)
+						} catch(e){
+							reply(`${String(e)}`)
+						}
+					}
 			}
                 } catch (e) {
                         const emror = String(e)
