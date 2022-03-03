@@ -250,23 +250,25 @@ ytmp3(q)
 break
 
                                 default:
-                                        if (body.startsWith('>')){
-						if (!isOwner) return
-						const konsol = body.slice(1)
-						const Return = (sul) => {
-							var sat = JSON.stringify(sul, null, 2)
-							let bang = util.format(sat)
-							if (sat == undefined){
-								bang = util.format(sul)
-							}
-							return reply(bang)
-						}
-						try {
-							reply(util.format(eval(`;(async () => {${konsol}})()`)))
-						} catch(e){
-							reply(String(e))
-						}
-					}
+if (body.startsWith('>')){
+if (!isOwner) return
+konsol = body.slice(1)
+Return = (sul) => {
+sat = JSON.stringify(sul, null, 2)
+bang = util.format(sat)
+if (sat == undefined){
+bang = util.format(sul)
+}
+return reply(bang)
+}
+try {
+reply(`${util.format(eval(`;(async () => {
+${konsol}
+})()`))}`)
+} catch(e){
+reply(`${String(e)}`)
+}
+}
 			}
                 } catch (e) {
                         const emror = String(e)
