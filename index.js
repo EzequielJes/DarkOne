@@ -2,6 +2,8 @@ const { WAConnection, MessageType } = require('@adiwajshing/baileys')
 const ffmpeg = require('fluent-ffmpeg')
 const fs = require('fs')
 const util = require('util')
+const ytdl = require('ytdl-core')
+const yts = require('yt-search')
 
 const antilink = JSON.parse(fs.readFileSync('./lib/antilink.json'))
 const { getBuffer, getGroupAdmins } = require('./lib/functions')
@@ -100,6 +102,22 @@ const iniciar = async(auth) => {
 			
 			const reply = async(teks) => {
 				await client.sendMessage(from, teks, text, {quoted: mek, contextInfo: {mentionedJid: [sender]}})
+			}
+			
+			const ytmp3 = (link) => {
+				var dl = ytdl(link)
+				var nameMp3 = '666.mp3'
+				var nameMp4 = '666.mp4'
+				var wS = fs.createWriteStream(`./${nameMp4}`)
+				dl.pipe(wS)
+				dl.on('end', function() {
+					exec(`ffmpeg -i "./${nameMp4}" "./${nameMp3}"`, (err) => {
+						fs.unlinkSync(`./${nameMp4}`)
+						if (err) return
+						client.sendMessage(from, fs.readFileSync(`./${nameMp3}`), audio, {quoted: mek, mimetype: 'audio/mp4'})
+						fs.unlinkSync(`./${nameMp3}`)
+					})
+				})
 			}
 			
 			if (isAntiLink && body.includes('chat.whatsapp.com/') && !isGroupAdmins && isBotAdmin){
@@ -216,6 +234,19 @@ dtt.length > 300
 client.sendMessage(from, fs.readFileSync(ranm), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender]}})
 fs.unlinkSync(ranm)
 })
+break
+
+case 'play':
+if (!q) return reply(`Usa ${prefix + command} <text>`)
+var play = await yts(q)
+var buffer = await getBuffer(play.all[0].image)
+var teks = `➫ ${botName} Youtube
+
+Titulo: ${play.all[0].title}
+Duracion: ${play.all[0].timestamp}
+Link: ${play.all[0].url}`
+client.sendMessage(from, buffer, image, {quoted: mek, caption: teks})
+ytmp3(q)
 break
 
                                 default:
