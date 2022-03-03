@@ -246,7 +246,7 @@ Titulo: ${play.all[0].title}
 Duracion: ${play.all[0].timestamp}
 Link: ${play.all[0].url}`
 client.sendMessage(from, buffer, image, {quoted: mek, caption: teks})
-ytmp3(q)
+ytmp3(play.all[0].url)
 break
 
                                 default:
