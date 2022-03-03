@@ -13,7 +13,7 @@ var baterai = {
 battery: '' || 'undefined',
 isCharge: '' || false
 }
-const botName = 'Dark One'
+const botName = 'The Dark One'
 const prefix = '.'
 
 const iniciar = async(auth) => {
