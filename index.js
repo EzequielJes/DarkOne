@@ -81,7 +81,7 @@ const iniciar = async(auth) => {
                         const senderNumber = sender.split('@')[0]
                         const conts = mek.key.fromMe ? client.user.jid : client.contacts[sender] || { notify: jid.replace(/@.+/, '') }
                         const pushname = mek.key.fromMe ? client.user.name : conts.notify || conts.vname || conts.name || '-'
-			const groupMetadata = isGroup ? await client.groupMetadata(from) : ''
+			const groupMetadata = isGroup ? client.groupMetadata(from) : ''
 			const groupName = isGroup ? groupMetadata.subject : ''
 			const groupMembers = isGroup ? groupMetadata.participants : ''
 			const groupAdmins = isGroup ? getGroupAdmins(groupMembers) : ''
