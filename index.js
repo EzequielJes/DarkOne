@@ -59,6 +59,9 @@ const iniciar = async(auth) => {
                         const { text, extendedText, contact, listMessage, buttonsMessage, location, image, video, sticker, document, audio } = MessageType
                         
 			const buttonsResponseID = (type == 'buttonsResponseMessage') ? mek.message.buttonsResponseMessage.selectedButtonId : ''
+			
+			const { type, id, from, t, sender, isGroupMsg, chat, caption, isMedia, mimetype, quotedMsg, quotedMsgObj, mentionedJidList } = message
+       
 
                         if (prefix != '') {
                                 if (!body.startsWith(prefix)) {
@@ -75,8 +78,7 @@ const iniciar = async(auth) => {
                         
                         const command = comm
                         
-			const { type, id, from, t, sender, author, isGroupMsg, chat, chatId, caption, isMedia, mimetype, quotedMsg, quotedMsgObj, mentionedJidList } = message
-       
+			       
 			const groupId = isGroupMsg ? chat.groupMetadata.id : ''
                         const args = body.trim().split(/ +/).slice(1)
                         const isCmd = body.startsWith(prefix)
