@@ -56,6 +56,8 @@ const iniciar = async(auth) => {
                         const body = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : ''
                         const { text, extendedText, contact, listMessage, buttonsMessage, location, image, video, sticker, document, audio } = MessageType
                         
+			const buttonsResponseID = (type == 'buttonsResponseMessage') ? mek.message.buttonsResponseMessage.selectedButtonId : ''
+
                         if (prefix != '') {
                                 if (!body.startsWith(prefix)) {
                                         cmd = false
@@ -156,14 +158,7 @@ const iniciar = async(auth) => {
            🔱
 "𝚂𝚊𝚗𝚝𝚒𝚏𝚒𝚌𝚊𝚍𝚘 𝚜𝚎𝚊𝚗 𝚕𝚘𝚜 𝙾𝚛𝚊𝚒𝚜"`
 
-switch (command) {
 
-case 'menu':		
-contentText: botMenu,
-footerText: `Hora: *${time}*
-Bateria: *${baterai.battery}*`,
-	
-break
                                              
 case 'antilink':
 if (!isGroup) return reply('Comando solo para grupos')
