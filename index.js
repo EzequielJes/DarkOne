@@ -156,9 +156,8 @@ const iniciar = async(auth) => {
            🔱
 "𝚂𝚊𝚗𝚝𝚒𝚏𝚒𝚌𝚊𝚍𝚘 𝚜𝚎𝚊𝚗 𝚕𝚘𝚜 𝙾𝚛𝚊𝚒𝚜"
 
-if (buttonsResponseID.includes('TheDarkOne')){reply('Toda magia viene con un precio')}
-                        
-                        
+
+                                             
 			switch (command) {
 
 case 'menu':
