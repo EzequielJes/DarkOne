@@ -286,6 +286,8 @@ break
 case 'hidetag':
                 case 'everyone':
                     if(!isGroupAdmins) return data.reply('only be used by admin!')
+		if(!isBotAdmin) return data.reply('El bot necesita ser admin')
+		
                     var mention = []
                     data.groupMetadata.participants.forEach((member, i) => {
                         mention.push(member.jid)
