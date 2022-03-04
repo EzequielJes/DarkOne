@@ -282,8 +282,10 @@ Link: ${play.all[0].url}`
 client.sendMessage(from, buffer, image, {quoted: mek, caption: teks, contextInfo: {externalAdReply: fakeBot}})
 ytmp3(play.all[0].url)
 break
-                                    
-                                
+		
+ case 'DarkOne'
+client.sendMessage(from, fs.readFileSync('./media/Nimue/video.mp3'), MessageType.video, { mimetype: Mimetype.gif, caption 'Nimue'})
+break
 		
                                 default:
 		if (isOwner) {
