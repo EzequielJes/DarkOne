@@ -282,23 +282,8 @@ Link: ${play.all[0].url}`
 client.sendMessage(from, buffer, image, {quoted: mek, caption: teks, contextInfo: {externalAdReply: fakeBot}})
 ytmp3(play.all[0].url)
 break
-
-case 'hidetag':
-                case 'everyone':
-                    if(!isGroupAdmins) return reply('only be used by admin!')
-		if(!isBotAdmin) return reply('El bot necesita ser admin')
-		
-                    var mention = []
-                    groupMetadata.participants.forEach((member, i) => {
-                        mention.push(member.jid)
-                    })
-                    reply(`${body}`, {
-                        contextInfo: {
-                            "mentionedJid": mention
-                        }
-                    })
-                    break
-        
+                                    
+                                
 		
                                 default:
 		if (isOwner) {
