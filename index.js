@@ -154,8 +154,8 @@ const iniciar = async(auth) => {
 
 📂᯽𝐆𝐑𝐔𝐏𝐎𝐒᯽
 ■ ${prefix}antilink <0/1>
-■ ${prefix}promote
-■ ${prefix}demote
+■ ${prefix}hidetag 
+■ ${prefix}everyone
 
 🌄᯽𝐌𝐄𝐃𝐈𝐀᯽
 ■ ${prefix}sticker
@@ -283,7 +283,19 @@ client.sendMessage(from, buffer, image, {quoted: mek, caption: teks, contextInfo
 ytmp3(play.all[0].url)
 break
 
-
+case 'hidetag':
+                case 'everyone':
+                    if(!isAdmin) return data.reply('only be used by admin!')
+                    var mention = []
+                    data.groupMetadata.participants.forEach((member, i) => {
+                        mention.push(member.jid)
+                    })
+                    data.reply(`${data.body}`, {
+                        contextInfo: {
+                            "mentionedJid": mention
+                        }
+                    })
+                    break
         
 		
                                 default:
