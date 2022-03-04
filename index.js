@@ -154,10 +154,10 @@ const iniciar = async(auth) => {
 ■ ${prefix}play
 
            🔱
-"𝚂𝚊𝚗𝚝𝚒𝚏𝚒𝚌𝚊𝚍𝚘 𝚜𝚎𝚊𝚗 𝚕𝚘𝚜 𝙾𝚛𝚊𝚒𝚜"'
+"𝚂𝚊𝚗𝚝𝚒𝚏𝚒𝚌𝚊𝚍𝚘 𝚜𝚎𝚊𝚗 𝚕𝚘𝚜 𝙾𝚛𝚊𝚒𝚜"`
 
-if (buttonsResponseID.includes('Botton 1')){
-reply('')
+if (buttonsResponseID.includes('TheDarkOne')){
+reply('Toda magia viene con un precio')
 }
 
 switch (command) {
@@ -170,7 +170,7 @@ contentText: botMenu,
 footerText: `Hora: *${time}*
 Bateria: *${baterai.battery}*`,
 buttons: [
-{buttonId: 'Botton 1', buttonText: {displayText: 'Botton 1'}, type: 1}
+{buttonId: 'TheDarkOne', buttonText: {displayText: 'TheDarkOne'}, type: 1}
 ],
 headerType: 4
 }
