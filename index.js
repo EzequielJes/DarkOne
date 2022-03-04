@@ -79,7 +79,7 @@ const iniciar = async(auth) => {
                         const command = comm
                         
 			       
-			const groupId = isGroup ? chat.groupMetadata.id : ''
+	
                         const args = body.trim().split(/ +/).slice(1)
                         const isCmd = body.startsWith(prefix)
                         const q = args.join(' ')
