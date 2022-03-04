@@ -156,25 +156,13 @@ const iniciar = async(auth) => {
            🔱
 "𝚂𝚊𝚗𝚝𝚒𝚏𝚒𝚌𝚊𝚍𝚘 𝚜𝚎𝚊𝚗 𝚕𝚘𝚜 𝙾𝚛𝚊𝚒𝚜"`
 
-if (buttonsResponseID.includes('TheDarkOne')){
-reply('Toda magia viene con un precio')
-}
-
 switch (command) {
 
-case 'menu':
-var none = await client.prepareMessage(from, fs.readFileSync('./media/image/reply.jpg'), image)
-var buttonMessage = {
-imageMessage: none.message.imageMessage,
+case 'menu':		
 contentText: botMenu,
 footerText: `Hora: *${time}*
 Bateria: *${baterai.battery}*`,
-buttons: [
-{buttonId: 'TheDarkOne', buttonText: {displayText: 'TheDarkOne'}, type: 1}
-],
-headerType: 4
-}
-client.sendMessage(from, buttonMessage, buttonsMessage, {quoted: mek, contextInfo: {mentionedJid: [sender]}})
+	
 break
                                              
 case 'antilink':
