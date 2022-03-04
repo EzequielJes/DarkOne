@@ -5,14 +5,14 @@ const fs = require('fs')
 const util = require('util')
 const ytdl = require('ytdl-core')
 const yts = require('yt-search')
-const moment = require('moment-timezone');
+const moment = require('moment-timezone')
 
 const antilink = JSON.parse(fs.readFileSync('./lib/antilink.json'))
 const { getBuffer, getGroupAdmins } = require('./lib/functions')
 
 var baterai = {
-battery: '' || 'undefined',
-isCharge: '' || false
+	battery: '' || 'undefined',
+	isCharge: '' || false
 }
 const botName = 'The Dark One'
 const prefix = '.'
@@ -109,7 +109,7 @@ const iniciar = async(auth) => {
 				title: `${botName} | ℳℛ. ᎶᎾℒⅅ`,
 				body: '',
 				mediaUrl: 'https://hentaila.com/',
-				thumbnail: fs.readFileSync('./reply.jpg')
+				thumbnail: fs.readFileSync('./media/image/reply.jpg')
 			}
 			
 			const reply = async(teks) => {
