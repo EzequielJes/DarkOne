@@ -15,7 +15,7 @@ isCharge: '' || false
 }
 const botName = 'The Dark One'
 const prefix = '.'
-const time = moument.tz('America/Asuncion').format('HH:mm:ss')
+const time = moment.tz('America/Asuncion').format('HH:mm:ss')
 
 const iniciar = async(auth) => {
         const client = new WAConnection
