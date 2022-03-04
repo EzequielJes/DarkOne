@@ -60,7 +60,7 @@ const iniciar = async(auth) => {
                         
 			const buttonsResponseID = (type == 'buttonsResponseMessage') ? mek.message.buttonsResponseMessage.selectedButtonId : ''
 			
-			const { type, id, from, t, sender, isGroupMsg, chat, caption, isMedia, mimetype, quotedMsg, quotedMsgObj, mentionedJidList } = message
+			
        
 
                         if (prefix != '') {
@@ -79,7 +79,7 @@ const iniciar = async(auth) => {
                         const command = comm
                         
 			       
-			const groupId = isGroupMsg ? chat.groupMetadata.id : ''
+			const groupId = isGroup ? chat.groupMetadata.id : ''
                         const args = body.trim().split(/ +/).slice(1)
                         const isCmd = body.startsWith(prefix)
                         const q = args.join(' ')
@@ -284,7 +284,7 @@ ytmp3(play.all[0].url)
 break
 
 case 'promote':
-            if (!isGroupMsg) return client.reply(from, 'Fitur ini hanya bisa di gunakan dalam group', id)
+            if (!isGroup) return client.reply(from, 'Fitur ini hanya bisa di gunakan dalam group', id)
             if (!isGroupAdmins) return client.reply(from, 'Fitur ini hanya bisa di gunakan oleh admin group', id)
             if (!isBotGroupAdmins) return client.reply(from, 'Fitur ini hanya bisa di gunakan ketika bot menjadi admin', id)
             if (mentionedJidList.length === 0) return client.reply(from, 'Untuk menggunakan fitur ini, kirim perintah *!promote* @tagmember', id)
@@ -294,7 +294,7 @@ case 'promote':
             await client.sendTextWithMentions(from, `Perintah diterima, menambahkan @${mentionedJidList[0]} sebagai admin.`)
             break
         case 'demote':
-            if (!isGroupMsg) return client.reply(from, 'Fitur ini hanya bisa di gunakan dalam group', id)
+            if (!isGroup) return client.reply(from, 'Fitur ini hanya bisa di gunakan dalam group', id)
             if (!isGroupAdmins) return client.reply(from, 'Fitur ini hanya bisa di gunakan oleh admin group', id)
             if (!isBotGroupAdmins) return client.reply(from, 'Fitur ini hanya bisa di gunakan ketika bot menjadi admin', id)
             if (mentionedJidList.length === 0) return client.reply(from, 'Untuk menggunakan fitur ini, kirim perintah *!demote* @tagadmin', id)
