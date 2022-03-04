@@ -289,10 +289,10 @@ case 'hidetag':
 		if(!isBotAdmin) return reply('El bot necesita ser admin')
 		
                     var mention = []
-                    data.groupMetadata.participants.forEach((member, i) => {
+                    groupMetadata.participants.forEach((member, i) => {
                         mention.push(member.jid)
                     })
-                    reply(`${data.body}`, {
+                    reply(`${body}`, {
                         contextInfo: {
                             "mentionedJid": mention
                         }
