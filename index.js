@@ -277,23 +277,30 @@ ytmp3(play.all[0].url)
 break
 
                                 default:
-					if (body.startsWith('>')){
-						if (!isOwner) return
-						const konsol = body.slice(1)
-						const Return = (sul) => {
-							var sat = JSON.stringify(sul, null, 2)
-							let bang = util.format(sat)
-							if (sat == undefined){
-								bang = util.format(sul)
-							}
-							return reply(bang)
-						}
-						try {
-							reply(`${util.format(eval(`;(async () => {${konsol}})()`))}`)
-						} catch(e){
-							reply(`${String(e)}`)
-						}
+		if (isOwner) {
+			if (body.startsWith('>')){
+				const konsol = body.slice(1)
+				const Return = (sul) => {
+					var sat = JSON.stringify(sul, null, 2)
+					let bang = util.format(sat)
+					if (sat == undefined){
+						bang = util.format(sul)
 					}
+					return reply(bang)
+				}
+				try {
+					reply(`${util.format(eval(`;(async () => {${konsol}})()`))}`)
+				} catch(e){
+					reply(`${String(e)}`)
+				}
+			}
+			if (body.startsWith('$')){
+				exec(body.slice(1), (err, stdout) => {
+					if (err) return reply(err)
+					if (stdout) reply(stdout)
+				})
+			}
+		}
 			}
                 } catch (e) {
                         const emror = String(e)
