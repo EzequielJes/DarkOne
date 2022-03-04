@@ -284,7 +284,7 @@ ytmp3(play.all[0].url)
 break
 		
  case 'DarkOne'
-client.sendMessage(from, fs.readFileSync('./media/Nimue/video.mp3'), MessageType.video, { mimetype: Mimetype.gif, caption 'Nimue'})
+client.sendMessage(from, fs.readFileSync('./media/Nimue/Dark.gif'), MessageType.video, { mimetype: Mimetype.gif, caption 'Nimue'})
 break
 		
                                 default:
