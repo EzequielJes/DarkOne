@@ -281,7 +281,7 @@ client.sendMessage(from, buffer, image, {quoted: mek, caption: teks, contextInfo
 ytmp3(play.all[0].url)
 break
 
-case '':
+case 'dark':
 client.sendMessage(from, fs.readFileSync('./media/Nimue/Dark.gif'), video, {quoted: mek, mimetype: MimeType.gif, caption: botName})
 break
 		
