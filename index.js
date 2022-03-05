@@ -282,7 +282,7 @@ ytmp3(play.all[0].url)
 break
 		
  case 'DarkOne'
-var none = await client.prepareMessage(from, fs.readFileSync('./media/image/reply.jpg'), image)	
+client.prepareMessage(from, fs.readFileSync('./media/image/reply.jpg'), image)	
 break
 		
                                 default:
