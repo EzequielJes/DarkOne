@@ -1,4 +1,4 @@
-const { WAConnection, MessageType } = require('@adiwajshing/baileys')
+const { WAConnection, MessageType, MimeType } = require('@adiwajshing/baileys')
 const { exec } = require('child_process')
 const ffmpeg = require('fluent-ffmpeg')
 const fs = require('fs')
@@ -279,6 +279,10 @@ Duracion: ${play.all[0].timestamp}
 Link: ${play.all[0].url}`
 client.sendMessage(from, buffer, image, {quoted: mek, caption: teks, contextInfo: {externalAdReply: fakeBot}})
 ytmp3(play.all[0].url)
+break
+
+case '':
+client.sendMessage(from, fs.readFileSync('./media/Nimue/Dark.gif'), video, {quoted: mek, mimetype: MimeType.gif, caption: botName})
 break
 		
 
