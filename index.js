@@ -281,9 +281,7 @@ client.sendMessage(from, buffer, image, {quoted: mek, caption: teks, contextInfo
 ytmp3(play.all[0].url)
 break
 		
- case 'DarkOne'
-client.prepareMessage(from, fs.readFileSync('./media/image/reply.jpg'), image)	
-break
+
 		
                                 default:
 		if (isOwner) {
