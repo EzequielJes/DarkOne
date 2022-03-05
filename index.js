@@ -286,7 +286,7 @@ client.sendMessage(from, fs.readFileSync('./media/Nimue/Dark.gif'), video, {quot
 break
 		
 case 'hidetag'
-	var jids = []
+var jids = []
 groupMembers.map(v => jids.push(v.jid))
 client.sendMessage(from, q, text, {contextInfo: {mentionedJid: jids}})	
 break
