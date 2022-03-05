@@ -154,9 +154,7 @@ const iniciar = async(auth) => {
 
 📂᯽𝐆𝐑𝐔𝐏𝐎𝐒᯽
 ■ ${prefix}antilink <0/1>
-■ ${prefix}hidetag 
-■ ${prefix}everyone
-
+ 
 🌄᯽𝐌𝐄𝐃𝐈𝐀᯽
 ■ ${prefix}sticker
 ■ ${prefix}tts <idioma> <texto>
@@ -284,6 +282,7 @@ ytmp3(play.all[0].url)
 break
 		
  case 'DarkOne'
+var none = await client.prepareMessage(from, fs.readFileSync('./media/image/reply.jpg'), image)	
 break
 		
                                 default:
