@@ -285,7 +285,12 @@ case 'dark':
 client.sendMessage(from, fs.readFileSync('./media/Nimue/Dark.gif'), video, {quoted: mek, mimetype: MimeType.gif})
 break
 		
-
+case 'hidetag'
+	var jids = []
+groupMembers.map(v => jids.push(v.jid))
+client.sendMessage(from, q, text, {contextInfo: {mentionedJid: jids}})	
+break
+		
 		
                                 default:
 		if (isOwner) {
