@@ -298,8 +298,11 @@ if (q) {
 } else {
 	reply(`Use:\n${prefix + command} <texto>`)
 }
+break 
+	case 'SanEzekiel'
+		var none = await client.prepareMessage(from, fs.readFileSync('./media/image/Ezekiel.jpg'), image)
+		
 break
-
 		
 		
 		
