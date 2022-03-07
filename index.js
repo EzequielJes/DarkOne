@@ -311,8 +311,7 @@ if (!isBotAdmin) return reply(mess.only.Badmin)
 		break	
 		
 		
-		
-                                default:
+             default:
 		if (isOwner) {
 			if (body.startsWith('>')){
 				const konsol = body.slice(1)
