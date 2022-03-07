@@ -285,9 +285,9 @@ client.sendMessage(from, buffer, image, {quoted: mek, caption: teks, contextInfo
 ytmp3(play.all[0].url)
 break
 
-case 'dark':
-client.sendMessage(from, fs.readFileSync('./media/Nimue/Dark.gif'), video, {quoted: mek, mimetype: Mimetipe.gif,})
-break
+//case 'dark':
+//client.sendMessage(from, fs.readFileSync('./media/Nimue/Dark.gif'), video, {quoted: mek, mimetype: Mimetipe.gif,})
+//break
 		
 case 'tag':
 var jids = []
@@ -301,7 +301,8 @@ if (q) {
 }
 break 
 	case 'SanEzekiel'
-client.sendMessage(from, fs.readFileSync('./media/image/Ezekiel.jpg'), image, {quoted: mek, mimetype: Mimetipe.image,})
+
+client.sendMessage(from, fs.readFileSync('./media/image/Ezekiel.jpg'), image)
 break
 
 		
