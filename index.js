@@ -300,16 +300,7 @@ if (q) {
 }
 break
 
-case 'kick':
-case 'eliminar':
-if (!isGroup) return reply(mess.only.group)
-if (!isGroupAdmins) return reply(mess.only.admin)
-if (!isBotAdmin) return reply(mess.only.Badmin)
-                if (mek.message.extendedTextMessage != undefined){
-                mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
-		if (!mentioned) return reply(`exampol xd: ${prefix + command} @participante... o etiqueta el mensaje de la persona a eliminar`)
-		}
-		break	
+		
 		
 		
              default:
