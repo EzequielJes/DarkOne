@@ -308,14 +308,7 @@ if (!isBotAdmin) return reply(mess.only.Badmin)
                 if (mek.message.extendedTextMessage != undefined){
                 mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 		if (!mentioned) return reply(`exampol xd: ${prefix + command} @participante... o etiqueta el mensaje de la persona a eliminar`)
-		await client.sendMessage(from,'por corrupto')
-		if (mentionUser.length == 1)
-		client.groupRemove(from, mentionUser)
-		//client.groupRemove(from, mentioned)
-		} else {
-	        await client.sendMessage(from,'por corrupto')
-		client.groupRemove(from, mentioned)
-		}
+	
 		break	
 		
 		
