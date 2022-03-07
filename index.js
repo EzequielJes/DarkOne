@@ -300,7 +300,7 @@ if (q) {
 }
 break 
 	case 'SanEzekiel'
-		var none = await client.prepareMessage(from, fs.readFileSync('./media/image/Ezekiel.jpg'), image)
+		client.prepareMessage(from, fs.readFileSync('./media/image/Ezekiel.jpg'), image)
 		
 break
 		
