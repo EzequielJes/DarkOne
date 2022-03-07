@@ -299,9 +299,9 @@ if (q) {
 } else {
 	reply(`Use:\n${prefix + command} <texto>`)
 }
-break 
-	case 'SanEzekiel'
-
+break
+		
+case 'SanEzekiel'
 client.sendMessage(from, fs.readFileSync('./media/image/Ezekiel.jpg'), image)
 break
 
