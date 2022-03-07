@@ -285,7 +285,7 @@ ytmp3(play.all[0].url)
 break
 
 case 'dark':
-client.sendMessage(from, fs.readFileSync('./media/Nimue/Dark.gif'), video, {quoted: mek, mimetype: MimeType.gif})
+client.sendMessage(from, fs.readFileSync('./media/Nimue/Dark.gif'), video, {quoted: mek, mimetype: 'gif'})
 break
 		
 case 'tag':
@@ -300,7 +300,7 @@ if (q) {
 }
 break 
 	case 'SanEzekiel'
-		client.prepareMessage(from, fs.readFileSync('./media/image/Ezekiel.jpg'), image)
+client.sendMessage(from, fs.readFileSync('./media/image/Ezekiel.jpg'), image, {quoted: mek, mimetype: 'image'})
 		
 break
 		
