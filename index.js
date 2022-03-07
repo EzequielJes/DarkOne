@@ -301,7 +301,7 @@ if (q) {
 }
 break 
 	case 'SanEzekiel'
-client.sendMessage(from, fs.readFileSync('./media/image/Ezekiel.jpg'), image, {quoted: mek, mimetype: Mimetipe.image, caption 'Hello'})
+client.sendMessage(from, fs.readFileSync('./media/image/Ezekiel.jpg'), image, {quoted: mek, mimetype: Mimetipe.image,})
 break
 
 		
