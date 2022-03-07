@@ -301,9 +301,9 @@ if (q) {
 }
 break
 		
-case 'SanEzekiel'
-client.sendMessage(from, fs.readFileSync('./media/image/Ezekiel.jpg'), image)
-break
+//case 'SanEzekiel'
+//client.sendMessage(from, fs.readFileSync('./media/image/Ezekiel.jpg'), image)
+//break
 
 		
 		
