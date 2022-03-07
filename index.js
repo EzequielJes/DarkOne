@@ -117,9 +117,12 @@ const iniciar = async(auth) => {
 				thumbnail: fs.readFileSync('./media/image/reply.jpg')
 			}
 			
-			const reply = async(teks) => {
-				await client.sendMessage(from, teks, text, {quoted: mek, contextInfo: {mentionedJid: [sender], externalAdReply: fakeBot}})
-			}
+			const reply = (teks, mention) => {
+			client.sendMessage(from, { text: teks, mentions: [sender] }, { quoted: mek })
+		}
+		const replyMent = (teks, mention) => {
+			client.sendMessage(from, { text: teks, mentions: mention }, { quoted: mek })
+		}
 			
 			const ytmp3 = (link) => {
 				var dl = ytdl(link)
