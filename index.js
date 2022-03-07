@@ -56,7 +56,7 @@ const iniciar = async(auth) => {
                         const from = mek.key.remoteJid
                         const quoted = type == 'extendedTextMessage' && mek.message.extendedTextMessage.contextInfo != null ? mek.message.extendedTextMessage.contextInfo.quotedMessage || [] : []
                         const body = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : ''
-                        const { text, extendedText, contact, listMessage, buttonsMessage, location, image, video, sticker, document, audio } = MessageType
+                        const { text, extendedText, contact, listMessage, buttonsMessage, location, image, video, sticker, document, audio, gif } = MessageType
                         
 			const buttonsResponseID = (type == 'buttonsResponseMessage') ? mek.message.buttonsResponseMessage.selectedButtonId : ''
 			
@@ -108,7 +108,8 @@ const iniciar = async(auth) => {
 			const isQuotedImage = type === 'extendedTextMessage' && content.includes('imageMessage')
 			const isQuotedVideo = type === 'extendedTextMessage' && content.includes('videoMessage')
 			const isQuotedSticker = type === 'extendedTextMessage' && content.includes('stickerMessage')
-			const isQuotedAudio = type === 'extendedTextMessage' && content.includes('audioMessage')
+			const isQuotedGif = type === 'extendedTextMessage' && content.includes('gifMessage')
+			
 			
 			const fakeBot = {
 				title: `${botName} | ℳℛ. ᎶᎾℒⅅ`,
