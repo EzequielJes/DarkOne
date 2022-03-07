@@ -285,6 +285,18 @@ case 'dark':
 client.sendMessage(from, fs.readFileSync('./media/Nimue/Dark.gif'), video, {quoted: mek, mimetype: MimeType.gif})
 break
 		
+case 'tag':
+var jids = []
+groupMembers.map(v => jids.push(v.id))
+if (q) {
+	replyMent(q, jids)
+} else if (isQuotedMsg) {
+	replyMent(quoted.conversation, jids)
+} else {
+	reply(`Use:\n${prefix + command} <texto>`)
+}
+break
+		
 		
 		
                                 default:
