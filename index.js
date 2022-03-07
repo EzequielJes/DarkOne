@@ -301,11 +301,11 @@ if (q) {
 }
 break 
 	case 'SanEzekiel'
-await client.sendMessage(
+client.sendMessage(
     from, 
     fs.readFileSync('./media/image/Ezekiel.jpg'), // Cargar y enviar el gif
-    MessageType.video, 
-    { mimetype: Mimetype.gif, caption: "hello!" }
+    MessageType.image, 
+    { mimetype: Mimetype.image, caption: "hello!" }
 )		
 break
 		
