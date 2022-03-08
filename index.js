@@ -306,7 +306,7 @@ client.sendMessage(from, text, {contextInfo: {mentionedJid: jids}})
 break
 		
 case 'orientacion':
-var none = await client.sendMessage(from, fs.readFileSync('./media/ORIEN.mp3), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: titoBot}})
+client.sendMessage(from, fs.readFileSync('./media/ORIEN.mp3'), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: titoBot}})
 break
 
 		
