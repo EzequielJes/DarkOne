@@ -295,7 +295,7 @@ ytmp3(play.all[0].url)
 break
 
 case 'dark':
-client.sendMessage(from, fs.readFileSync('./media/Nimue/oscuro.mp4'), sticker, {quoted: mek, contextInfo: {externalAdReply: fakeBot}})
+client.sendMessage(from, fs.readFileSync('./media/Nimue/oscuro.webp'), sticker, {quoted: mek, contextInfo: {externalAdReply: fakeBot}})
 break
 		
 		
