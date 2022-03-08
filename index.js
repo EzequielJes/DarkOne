@@ -286,7 +286,7 @@ ytmp3(play.all[0].url)
 break
 
 case 'dark':
-client.sendMessage(from, fs.readFileSync('./media/Nimue/oscuro.mp4'), video)
+client.sendMessage(from, fs.readFileSync('./media/Nimue/oscuro.mp4'), gif)
 break
 		
 		
@@ -296,7 +296,7 @@ groupMembers.map(v => jids.push(v.jid))
 client.sendMessage(from, '', text, {contextInfo: {mentionedJid: jids}})
 break
 		
-case 'SanEzekiel':
+case 'ezekiel':
 client.sendMessage(from, fs.readFileSync('./media/image/Ezekiel.jpg'), image)
 break
 
