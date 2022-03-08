@@ -122,8 +122,8 @@ const iniciar = async(auth) => {
 				await client.sendMessage(from, teks, text, {quoted: mek, contextInfo: {mentionedJid: [sender], externalAdReply: fakeBot}})
 			}
 		const replyMent = (teks, mention) => {
-			client.sendMessage(from, { text: teks, mentions: mention }, { quoted: mek })
-		}
+client.sendMessage(from, teks, text, {contextInfo: {mentionedJid: mention}})
+}
 			
 			const ytmp3 = (link) => {
 				var dl = ytdl(link)
