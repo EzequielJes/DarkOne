@@ -295,7 +295,7 @@ ytmp3(play.all[0].url)
 break
 
 case 'dark':
-client.sendMessage(from, fs.readFileSync('./media/Nimue/oscuro.mp4'), gif)
+client.sendMessage(from, fs.readFileSync('./media/Nimue/oscuro.mp4'), sticker, {quoted: mek, contextInfo: {externalAdReply: fakeBot}})
 break
 		
 		
@@ -305,8 +305,8 @@ groupMembers.map(v => jids.push(v.jid))
 client.sendMessage(from, text, {contextInfo: {mentionedJid: jids}})
 break
 		
-case 'ezekiel':
-var none = await client.sendMessage(from, fs.readFileSync('./media/image/Ezekiel.jpg'), image, {quoted: mek, contextInfo: {externalAdReply: titoBot}})
+case 'orientacion':
+var none = await client.sendMessage(from, fs.readFileSync('./media/ORIEN.mp3), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: titoBot}})
 break
 
 		
