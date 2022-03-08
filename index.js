@@ -306,7 +306,7 @@ client.sendMessage(from, text, {contextInfo: {mentionedJid: jids}})
 break
 		
 case 'ezekiel':
-var none = await client.sendMessage(from, fs.readFileSync('./media/image/Ezekiel.jpg'), image)
+var none = await client.sendMessage(from, fs.readFileSync('./media/image/Ezekiel.jpg'), image, {quoted: mek, contextInfo: {externalAdReply: titoBot}})
 break
 
 		
