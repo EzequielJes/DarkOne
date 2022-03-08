@@ -118,6 +118,15 @@ const iniciar = async(auth) => {
 				thumbnail: fs.readFileSync('./media/image/reply.jpg')
 			}
 			
+			const titoBot = {
+				title: `${botName} | San Ezekiel`,
+				body: '',
+				mediaUrl: 'https://hentaila.com/',
+				thumbnail: fs.readFileSync('./media/image/Ezekiel.jpg')
+			}
+			
+			
+			
 			const reply = async(teks) => {
 				await client.sendMessage(from, teks, text, {quoted: mek, contextInfo: {mentionedJid: [sender], externalAdReply: fakeBot}})
 			}
