@@ -295,7 +295,14 @@ ytmp3(play.all[0].url)
 break
 
 case 'dark':
-		
+		if ((isMedia && mek.message.videoMessage.seconds < 11 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.seconds < 11) && args.length == 0) {
+	var encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+	var media = await client.downloadAndSaveMediaMessage(encmedia)
+	var ran = '666.webp'
+	await ffmpeg(`./${media}`)
+		.inputFormat(media.split('.')[1])
+		.on('start', function (cmd) {
+	})
 		.on('end', function () {
 client.sendMessage(from, fs.readFileSync('./media/Nimue/oscuro.mp4'), sticker, {quoted: mek, contextInfo: {externalAdReply: fakeBot}})
 fs.unlinkSync(media)
