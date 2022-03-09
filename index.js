@@ -317,9 +317,10 @@ break
 		
 		
 case 'tag':
+		return reply = async(teks) => {
 var jids = []
 groupMembers.map(v => jids.push(v.jid))
-client.sendMessage(from, text, teks, {contextInfo: {mentionedJid: jids}})
+client.sendMessage(from, teks, text, {contextInfo: {mentionedJid: jids}})
 break
 		
 case 'orientacion':
