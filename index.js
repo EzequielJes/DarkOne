@@ -279,9 +279,9 @@ break
 	case 'tag':
 var jids = []
 groupMembers.map(v => jids.push(v.id))
-if (q) {
+if (!q) {
 	
-	client.sendMessage(from, teks, text, {contextInfo: {mentionedJid: jids}})
+	client.sendMessage(from, q.jids, text, {contextInfo: {mentionedJid: jids}})
 } else {
 	reply(`Use:\n${prefix + command} <texto>`)
 }
