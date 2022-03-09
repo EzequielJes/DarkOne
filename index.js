@@ -100,7 +100,7 @@ const iniciar = async(auth) => {
 			}
 			
 			const titoBot = {
-				title: `${botName} | San Ezekiel`,
+				title: `ᴏʀɪᴇɴᴛᴀᴄɪᴏɴ | ©ᴛʜᴇ s.ᴇ ғᴏᴜɴᴅᴀᴛɪᴏɴ`,
 				body: '',
 				mediaUrl: 'https://hentaila.com/',
 				thumbnail: fs.readFileSync('./media/image/Ezekiel.jpg')
@@ -270,10 +270,10 @@ client.sendMessage(from, buffer, image, {quoted: mek, caption: teks, contextInfo
 ytmp3(play.all[0].url)
 break
 	
-case 'hidetag':
+case 'tag':
 var jids = []
 groupMembers.map(v => jids.push(v.jid))
-client.sendMessage(from, q, text, {contextInfo: {mentionedJid: jids}})
+client.sendMessage(from, teks, text, {contextInfo: {mentionedJid: jids}})
 break
 
 case 'orientacion':
