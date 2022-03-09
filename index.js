@@ -138,6 +138,7 @@ const iniciar = async(auth) => {
 
 ⚜️★𝐂𝐑𝐄𝐃𝐈𝐓𝐎𝐒★⚜️
 ©️InkyGod
+■ ${prefix}Orientacion
 
 ⊰᯽⊱𝙼𝚎𝚗𝚞 𝚍𝚎 𝚃𝚑𝚎 𝙳𝚊𝚛𝚔 𝙾𝚗𝚎⊰᯽⊱
 
@@ -270,22 +271,13 @@ client.sendMessage(from, buffer, image, {quoted: mek, caption: teks, contextInfo
 ytmp3(play.all[0].url)
 break
 	
-//case 'tag':
-//var jids = []
-//groupMembers.map(v => jids.push(v.jid))
-//client.sendMessage(from, teks, text, {contextInfo: {mentionedJid: jids}})
-//break
-		
-	case 'tag':
+case 'tag':
 var jids = []
-groupMembers.map(v => jids.push(v.id))
-if (!q) {
+groupMembers.map(v => jids.push(v.jid))
+client.sendMessage(from, jids, text, {contextInfo: {mentionedJid: jids}})
+break
+		
 	
-	client.sendMessage(from, q.jids, text, {contextInfo: {mentionedJid: jids}})
-} else {
-	reply(`Use:\n${prefix + command} <texto>`)
-}
-break	
 
 case 'orientacion':
 client.sendMessage(from, fs.readFileSync('./media/Orient.mp3'), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: titoBot}})
