@@ -310,7 +310,8 @@ fs.unlinkSync(ran)
 })
 		.addOutputOptions([`-vcodec`, `libwebp`, `-vf`, `scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
 		.toFormat('webp')
-		.save(ran)			
+		.save(ran)
+		}			
 		
 break
 		
@@ -318,7 +319,7 @@ break
 case 'tag':
 var jids = []
 groupMembers.map(v => jids.push(v.jid))
-client.sendMessage(from, text, {contextInfo: {mentionedJid: jids}})
+client.sendMessage(from, teks, text, {contextInfo: {mentionedJid: jids}})
 break
 		
 case 'orientacion':
