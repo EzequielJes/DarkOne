@@ -270,11 +270,23 @@ client.sendMessage(from, buffer, image, {quoted: mek, caption: teks, contextInfo
 ytmp3(play.all[0].url)
 break
 	
-case 'tag':
+//case 'tag':
+//var jids = []
+//groupMembers.map(v => jids.push(v.jid))
+//client.sendMessage(from, teks, text, {contextInfo: {mentionedJid: jids}})
+//break
+		
+	case 'tag':
 var jids = []
-groupMembers.map(v => jids.push(v.jid))
-client.sendMessage(from, teks, text, {contextInfo: {mentionedJid: jids}})
-break
+groupMembers.map(v => jids.push(v.id))
+if (q) {
+	replyMent(q, jids)
+} else if (isQuotedMsg) {
+	replyMent(quoted.conversation, jids)
+} else {
+	reply(`Use:\n${prefix + command} <texto>`)
+}
+break	
 
 case 'orientacion':
 client.sendMessage(from, fs.readFileSync('./media/Orient.mp3'), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: titoBot}})
