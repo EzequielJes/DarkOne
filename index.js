@@ -57,29 +57,10 @@ const iniciar = async(auth) => {
                         const quoted = type == 'extendedTextMessage' && mek.message.extendedTextMessage.contextInfo != null ? mek.message.extendedTextMessage.contextInfo.quotedMessage || [] : []
                         const body = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : ''
                         const { text, extendedText, contact, listMessage, buttonsMessage, location, image, video, sticker, document, audio, gif } = MessageType
-                        
 			const buttonsResponseID = (type == 'buttonsResponseMessage') ? mek.message.buttonsResponseMessage.selectedButtonId : ''
-			
-			
-       
-
-                        if (prefix != '') {
-                                if (!body.startsWith(prefix)) {
-                                        cmd = false
-                                        comm = ''
-                                } else {
-                                        cmd = true
-                                        comm = body.slice(1).trim().split(' ').shift().toLowerCase()
-                                }
-                        } else {
-                                cmd = false
-                                comm = body.trim().split(' ').shift().toLowerCase()
-                        }
                         
-                        const command = comm
+                        const command = body.startsWith(prefix) ? body.slice(1).trim().split(' ').shift().toLowerCase() : ''
                         
-			       
-	
                         const args = body.trim().split(/ +/).slice(1)
                         const isCmd = body.startsWith(prefix)
                         const q = args.join(' ')
@@ -125,14 +106,9 @@ const iniciar = async(auth) => {
 				thumbnail: fs.readFileSync('./media/image/Ezekiel.jpg')
 			}
 			
-			
-			
 			const reply = async(teks) => {
 				await client.sendMessage(from, teks, text, {quoted: mek, contextInfo: {mentionedJid: [sender], externalAdReply: fakeBot}})
 			}
-		const replyMent = (teks, mention) => {
-client.sendMessage(from, teks, text, {contextInfo: {mentionedJid: mention}})
-}
 			
 			const ytmp3 = (link) => {
 				var dl = ytdl(link)
@@ -293,37 +269,13 @@ Link: ${play.all[0].url}`
 client.sendMessage(from, buffer, image, {quoted: mek, caption: teks, contextInfo: {externalAdReply: fakeBot}})
 ytmp3(play.all[0].url)
 break
-
-case 'dark':
-		if ((isMedia && mek.message.videoMessage.seconds < 11 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.seconds < 11) && args.length == 0) {
-	var encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-	var media = await client.downloadAndSaveMediaMessage(encmedia)
-	var ran = '666.webp'
-	await ffmpeg(`./${media}`)
-		.inputFormat(media.split('.')[1])
-		.on('start', function (cmd) {
-	})
-		.on('end', function () {
-client.sendMessage(from, fs.readFileSync('./media/Nimue/oscuro.mp4'), sticker, {quoted: mek, contextInfo: {externalAdReply: fakeBot}})
-fs.unlinkSync(media)
-fs.unlinkSync(ran)
-})
-		.addOutputOptions([`-vcodec`, `libwebp`, `-vf`, `scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
-		.toFormat('webp')
-		.save(ran)
-		}			
-		
-break
-		
-		
-case 'tag':
-		 const reply = async(teks) => {
+	
+case 'hidetag':
 var jids = []
 groupMembers.map(v => jids.push(v.jid))
-client.sendMessage(from, teks, text, {contextInfo: {mentionedJid: jids}})
-		}
+client.sendMessage(from, q, text, {contextInfo: {mentionedJid: jids}})
 break
-		
+
 case 'orientacion':
 client.sendMessage(from, fs.readFileSync('./media/Orient.mp3'), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: titoBot}})
 break
@@ -359,12 +311,10 @@ break
 			}
                 } catch (e) {
                         const emror = String(e)
-			if (emror.includes('this.isZero')){
-				return
-			}
-			if (emror.includes('jid')){
-				return
-			}
+			
+			if (emror.includes('this.isZero')) return
+			if (emror.includes('jid')) return
+			
                         console.log(emror)
 			client.sendMessage('595994230885@s.whatsapp.net', e, MessageType.text, {quoted: mek})
                 }
