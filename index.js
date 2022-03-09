@@ -274,7 +274,7 @@ break
 case 'tag':
 var jids = []
 groupMembers.map(v => jids.push(v.jid))
-client.sendMessage(from, jids, text, {contextInfo: {mentionedJid: jids}})
+client.sendMessage(from, '', text, {contextInfo: {mentionedJid: jids}})
 break
 		
 	
