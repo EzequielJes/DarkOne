@@ -282,7 +282,43 @@ break
 case 'orientacion':
 var none = await client.sendMessage(from, fs.readFileSync('./media/Ori.mp3'), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: titoBot}})
 break
-
+		
+case 'bella':
+var none = await client.sendMessage(from, fs.readFileSync('./media/audio/Bella.mp3'), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: fakeBot}})
+break
+		
+		case 'colorado':
+var none = await client.sendMessage(from, fs.readFileSync('./media/audio/Colorado.mp3'), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: fakeBot}})
+break
+		
+		
+case 'viva':
+var none = await client.sendMessage(from, fs.readFileSync('./media/audio/Pum.mp3'), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: fakeBot}})
+break
+		
+case 'purga':
+var none = await client.sendMessage(from, fs.readFileSync('./media/audio/Purga.mp3'), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: fakeBot}})
+break
+		
+	case 'ameno':
+var none = await client.sendMessage(from, fs.readFileSync('./media/audio/Torime.mp3'), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: fakeBot}})
+break	
+		
+	case 'turbio':
+var none = await client.sendMessage(from, fs.readFileSync('./media/audio/Turbio.mp3'), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: fakeBot}})
+break
+		
+	case 'vitta':
+var none = await client.sendMessage(from, fs.readFileSync('./media/audio/Vita.mp3'), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: fakeBot}})
+break	
+		
+	case 'vladi':
+var none = await client.sendMessage(from, fs.readFileSync('./media/audio/Vladimir.mp3'), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: fakeBot}})
+break	
+		
+	case 'wha':
+var none = await client.sendMessage(from, fs.readFileSync('./media/audio/What.mp3'), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: fakeBot}})
+break	
 		
 		
 		
