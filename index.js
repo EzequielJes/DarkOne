@@ -280,7 +280,7 @@ break
 	
 
 case 'orientacion':
-client.sendMessage(from, fs.readFileSync('./media/Ori.mp3'), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: titoBot}})
+client.sendMessage(from, fs.readFileSync('./media/Cinta.mp3'), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: titoBot}})
 break
 		
 case 'bella':
