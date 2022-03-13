@@ -130,6 +130,21 @@ const iniciar = async(auth) => {
 				client.groupRemove(from, [sender])
 			}
 			
+			const audioMenu = `🎤𝐀𝐮𝐝𝐢𝐨𝐬 
+			bella 
+			colorado 
+			viva 
+			purga 
+			ameno 
+			turbio 
+			vitta 
+			vladi 
+			wha`
+			}
+		
+			
+			
+			
 			const botMenu = `✿👋🏻ꜱᴀʟᴜᴅᴏꜱ @${senderNumber}✿
 
 ❂ᴛʜᴇ ᴅᴀʀᴋ ᴏɴᴇ❂
