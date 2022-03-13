@@ -163,6 +163,8 @@ const iniciar = async(auth) => {
 🌄᯽𝐌𝐄𝐃𝐈𝐀᯽
 ■ ${prefix}sticker
 ■ ${prefix}tts <idioma> <texto>
+■ ${prefix}audios
+
 
 📥᯽𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀𝐒᯽
 ■ ${prefix}play
