@@ -293,6 +293,15 @@ var jids = []
 groupMembers.map(v => jids.push(v.jid))
 client.sendMessage(from, '', text, {contextInfo: {mentionedJid: jids}})
 break
+	case 'audios':
+		var none = await client.prepareMessage(from, fs.readFileSync('./media/image/reply.jpg'), image)
+var buttonMessage = {
+imageMessage: none.message.imageMessage,
+contentText: audioMenu
+	break
+	
+		
+		
 		
 	
 
