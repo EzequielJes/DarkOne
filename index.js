@@ -173,7 +173,7 @@ const iniciar = async(auth) => {
 "𝚂𝚊𝚗𝚝𝚒𝚏𝚒𝚌𝚊𝚍𝚘 𝚜𝚎𝚊𝚗 𝚕𝚘𝚜 𝙾𝚛𝚊𝚒𝚜"`
 
 if (buttonsResponseID.includes('TheDarkOne')){
-reply('Numero del dueño 0994230885 ATTNCION AL CLIENTE')
+reply('Numero del dueño wa.me/+595994230885 ATENCION AL CLIENTE')
 }
 
 switch (command) {
@@ -294,11 +294,9 @@ groupMembers.map(v => jids.push(v.jid))
 client.sendMessage(from, '', text, {contextInfo: {mentionedJid: jids}})
 break
 	case 'audios':
-		var none = await client.prepareMessage(from, fs.readFileSync('./media/image/reply.jpg'), image)
-var buttonMessage = {
-imageMessage: none.message.imageMessage,
-contentText: audioMenu
-}
+		return reply(audioMenu)
+		
+
 	break
 	
 		
