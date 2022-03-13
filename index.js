@@ -140,7 +140,7 @@ const iniciar = async(auth) => {
 			vitta 
 			vladi 
 			wha`
-			}
+			
 		
 			
 			
@@ -173,7 +173,7 @@ const iniciar = async(auth) => {
 "𝚂𝚊𝚗𝚝𝚒𝚏𝚒𝚌𝚊𝚍𝚘 𝚜𝚎𝚊𝚗 𝚕𝚘𝚜 𝙾𝚛𝚊𝚒𝚜"`
 
 if (buttonsResponseID.includes('TheDarkOne')){
-reply('')
+reply('Numero del dueño 0994230885 ATTNCION AL CLIENTE')
 }
 
 switch (command) {
@@ -293,12 +293,12 @@ var jids = []
 groupMembers.map(v => jids.push(v.jid))
 client.sendMessage(from, '', text, {contextInfo: {mentionedJid: jids}})
 break
-	//case 'audios':
-		//var none = await client.prepareMessage(from, fs.readFileSync('./media/image/reply.jpg'), image)
-//var buttonMessage = {
-//imageMessage: none.message.imageMessage,
-//contentText: audioMenu
-	//break
+	case 'audios':
+		var none = await client.prepareMessage(from, fs.readFileSync('./media/image/reply.jpg'), image)
+var buttonMessage = {
+imageMessage: none.message.imageMessage,
+contentText: audioMenu
+	break
 	
 		
 		
