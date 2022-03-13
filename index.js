@@ -298,6 +298,7 @@ break
 var buttonMessage = {
 imageMessage: none.message.imageMessage,
 contentText: audioMenu
+}
 	break
 	
 		
