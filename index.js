@@ -291,20 +291,14 @@ break
 case 'tag':
 var jids = []
 groupMembers.map(v => jids.push(v.jid))
-return client.sendMessage(mek.message, { text:'', contextInfo: {mentionedJid: jids}})
+client.sendMessage(from.message, { text:'', contextInfo: {mentionedJid: jids}})
 break
 	case 'audios':
 		return reply(audioMenu)
 		
 
 	break
-		case 'hidetag':
-		if (!q || mek.quoted == null) return
-		var jids = []
-		var teks = q ? q : mek.quoted.text
-		groupMembers.map(v => jids.push(v.jid))
-		from.reply(teks, mek.message, jids)
-		break
+		
 		
 	
 		
