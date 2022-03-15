@@ -291,7 +291,7 @@ break
 case 'tag':
 var jids = []
 groupMembers.map(v => jids.push(v.jid))
-return client.sendMessage(m.chat, { text:'', contextInfo: {mentionedJid: jids}})
+return client.sendMessage(mek.chat, { text:'', contextInfo: {mentionedJid: jids}})
 break
 	case 'audios':
 		return reply(audioMenu)
