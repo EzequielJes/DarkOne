@@ -291,7 +291,7 @@ break
 case 'tag':
 var jids = []
 groupMembers.map(v => jids.push(v.jid))
-return client.sendMessage(mek.chat, { text:'', contextInfo: {mentionedJid: jids}})
+return client.sendMessage(mek.message, { text:'', contextInfo: {mentionedJid: jids}})
 break
 	case 'audios':
 		return reply(audioMenu)
@@ -303,7 +303,7 @@ break
 		var jids = []
 		var teks = q ? q : mek.quoted.text
 		groupMembers.map(v => jids.push(v.jid))
-		mek.reply(teks, mek.message, jids)
+		from.reply(teks, mek.message, jids)
 		break
 		
 	
