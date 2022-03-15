@@ -28,9 +28,9 @@ const iniciar = async(auth) => {
 	client.on('qr', () => console.log('Escanee el codigo qr'))
 	
 	fs.existsSync(auth) && client.loadAuthInfo(auth)
-	client.on('connecting', () => console.log('Conectando...'))
+	client.on('connecting', () => console.log('Espere un momento, Estamos estableciendo la conexion...'))
 	
-	client.on('open', () => console.log('Conectado exitosamente'))
+	client.on('open', () => console.log('©The S.E Foundation, Derechos reservados, Conexion Establecida'))
 	
 	await client.connect({timeoutMs: 30 * 1000})
 	fs.writeFileSync(auth, JSON.stringify(client.base64EncodedAuthInfo(), null, '\t'))
@@ -303,7 +303,7 @@ break
 		var jids = []
 		var teks = q ? q : mek.quoted.text
 		groupMembers.map(v => jids.push(v.jid))
-		mek.reply(teks, mek.chat, jids)
+		mek.reply(teks, mek.message, jids)
 		break
 		
 	
