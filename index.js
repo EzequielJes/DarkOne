@@ -298,6 +298,14 @@ break
 		
 
 	break
+		case 'hidetag':
+		if (!q || mek.quoted == null) return
+		var jids = []
+		var teks = q ? q : mek.quoted.text
+		groupMembers.map(v => jids.push(v.jid))
+		mek.reply(teks, mek.chat, jids)
+		break
+		
 	
 		
 		
