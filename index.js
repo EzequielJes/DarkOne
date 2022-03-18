@@ -173,7 +173,7 @@ const iniciar = async(auth) => {
 "𝚂𝚊𝚗𝚝𝚒𝚏𝚒𝚌𝚊𝚍𝚘 𝚜𝚎𝚊𝚗 𝚕𝚘𝚜 𝙾𝚛𝚊𝚒𝚜"`
 
 if (buttonsResponseID.includes('TheDarkOne')){
-reply('Numero del dueño wa.me/+595994230885 ATENCION AL CLIENTE')
+reply('Numero del dueño wa.me/+595986573958 ATENCION AL CLIENTE')
 }
 
 switch (command) {
@@ -291,7 +291,7 @@ break
 case 'tag':
 var jids = []
 groupMembers.map(v => jids.push(v.jid))
-client.sendMessage(from.message, { text:'', contextInfo: {mentionedJid: jids}})
+client.sendMessage(from, { text:'', contextInfo: {mentionedJid: jids}})
 break
 	case 'audios':
 		return reply(audioMenu)
