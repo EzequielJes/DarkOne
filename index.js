@@ -14,7 +14,7 @@ var baterai = {
 	battery: '' || 'undefined',
 	isCharge: '' || false
 }
-const botName = 'The S|E Foundation'
+const botName = '𝚃𝚑𝚎 𝚂|𝙴 𝙵𝚘𝚞𝚗𝚍𝚊𝚝𝚒𝚘𝚗'
 const prefix = '.'
 const time = moment.tz('America/Asuncion').format('HH:mm:ss')
 
@@ -170,9 +170,10 @@ const iniciar = async(auth) => {
 ■ ${prefix}play
 
            🔱
+©𝚃𝚑𝚎 𝚂|𝙴 𝙵𝚘𝚞𝚗𝚍𝚊𝚝𝚒𝚘𝚗, 𝙰𝚕𝚕 𝚁𝚒𝚐𝚑𝚒𝚝𝚜 𝚁𝚎𝚜𝚎𝚛𝚟𝚎𝚍   
 "𝚂𝚊𝚗𝚝𝚒𝚏𝚒𝚌𝚊𝚍𝚘 𝚜𝚎𝚊𝚗 𝚕𝚘𝚜 𝙾𝚛𝚊𝚒𝚜"`
 
-if (buttonsResponseID.includes('TheDarkOne')){
+if (buttonsResponseID.includes('𝚃𝚑𝚎 𝚂|𝙴 𝙵𝚘𝚞𝚗𝚍𝚊𝚝𝚒𝚘𝚗')){
 reply('Numero del dueño wa.me/+595986573958 ATENCION AL CLIENTE')
 }
 
@@ -186,7 +187,7 @@ contentText: botMenu,
 footerText: `Hora: *${time}*
 Bateria: *${baterai.battery}*`,
 buttons: [
-{buttonId: 'TheDarkOne', buttonText: {displayText: 'TheDarkOne'}, type: 1}
+{buttonId: '𝚃𝚑𝚎 𝚂|𝙴 𝙵𝚘𝚞𝚗𝚍𝚊𝚝𝚒𝚘𝚗', buttonText: {displayText: '𝚃𝚑𝚎 𝚂|𝙴 𝙵𝚘𝚞𝚗𝚍𝚊𝚝𝚒𝚘𝚗'}, type: 1}
 ],
 headerType: 4
 }
