@@ -14,7 +14,7 @@ var baterai = {
 	battery: '' || 'undefined',
 	isCharge: '' || false
 }
-const botName = 'The Dark One'
+const botName = 'The S|E Foundation'
 const prefix = '.'
 const time = moment.tz('America/Asuncion').format('HH:mm:ss')
 
@@ -100,7 +100,7 @@ const iniciar = async(auth) => {
 			}
 			
 			const titoBot = {
-				title: `ᴏʀɪᴇɴᴛᴀᴄɪᴏɴ | ©ᴛʜᴇ s.ᴇ ғᴏᴜɴᴅᴀᴛɪᴏɴ`,
+				title: `ᴏʀɪᴇɴᴛᴀᴄɪᴏɴ | ©ᴛʜᴇ s|ᴇ ғᴏᴜɴᴅᴀᴛɪᴏɴ`,
 				body: '',
 				mediaUrl: 'https://hentaila.com/',
 				thumbnail: fs.readFileSync('./media/image/Ezekiel.jpg')
@@ -155,7 +155,7 @@ const iniciar = async(auth) => {
 ©️InkyGod
 ■ ${prefix}Orientacion
 
-⊰᯽⊱𝙼𝚎𝚗𝚞 𝚍𝚎 𝚃𝚑𝚎 𝙳𝚊𝚛𝚔 𝙾𝚗𝚎⊰᯽⊱
+⊰᯽⊱𝙼𝚎𝚗𝚞⊰᯽⊱
 
 📂᯽𝐆𝐑𝐔𝐏𝐎𝐒᯽
 ■ ${prefix}antilink <0/1>
