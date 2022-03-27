@@ -23,7 +23,7 @@ const iniciar = async(auth) => {
         
         client.logger.level = 'warn'
 	client.version = [2, 2143, 3]
-	client.browserDescription = [ 'The Dark One', '', '3.0' ]
+	client.browserDescription = [ 'The S|E Foundation', '', '3.0' ]
 	
 	client.on('qr', () => console.log('Escanee el codigo qr'))
 	
