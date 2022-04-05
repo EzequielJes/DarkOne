@@ -131,6 +131,7 @@ const iniciar = async(auth) => {
 			}
 			
 			const audioMenu = `🎤𝐀𝐮𝐝𝐢𝐨𝐬 
+			S|E
 			bella 
 			estup
 			colorado 
@@ -353,6 +354,10 @@ break
 		
 		case 'estup':
 client.sendMessage(from, fs.readFileSync('./media/audio/Estupida.mp3'), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: fakeBot}})
+break	
+		
+		case 'S|E':
+client.sendMessage(from, fs.readFileSync('./media/audio/Bot.mp3'), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: fakeBot}})
 break	
 		
 		
