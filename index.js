@@ -348,6 +348,10 @@ break
 client.sendMessage(from, fs.readFileSync('./media/audio/What.mp3'), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: fakeBot}})
 break	
 		
+		case 'estup':
+client.sendMessage(from, fs.readFileSync('./media/audio/Estupida.mp3'), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: fakeBot}})
+break	
+		
 		
 		
              default:
