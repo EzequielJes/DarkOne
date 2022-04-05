@@ -132,6 +132,7 @@ const iniciar = async(auth) => {
 			
 			const audioMenu = `🎤𝐀𝐮𝐝𝐢𝐨𝐬 
 			bella 
+			estup
 			colorado 
 			viva 
 			purga 
@@ -139,7 +140,9 @@ const iniciar = async(auth) => {
 			turbio 
 			vitta 
 			vladi 
-			wha`
+			wha 
+			©𝚃𝚑𝚎 𝚂|𝙴 𝙵𝚘𝚞𝚗𝚍𝚊𝚝𝚒𝚘𝚗, 𝙰𝚕𝚕 𝚁𝚒𝚐𝚑𝚒𝚝𝚜 𝚁𝚎𝚜𝚎𝚛𝚟𝚎𝚍   
+                        "𝚂𝚊𝚗𝚝𝚒𝚏𝚒𝚌𝚊𝚍𝚘 𝚜𝚎𝚊𝚗 𝚕𝚘𝚜 𝙾𝚛𝚊𝚒𝚜"`
 			
 		
 			
