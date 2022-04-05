@@ -131,7 +131,7 @@ const iniciar = async(auth) => {
 			}
 			
 			const audioMenu = `🎤𝐀𝐮𝐝𝐢𝐨𝐬 
-			S|E
+			S.E
 			bella 
 			estup
 			colorado 
@@ -142,8 +142,8 @@ const iniciar = async(auth) => {
 			vitta 
 			vladi 
 			wha 
-			©𝚃𝚑𝚎 𝚂|𝙴 𝙵𝚘𝚞𝚗𝚍𝚊𝚝𝚒𝚘𝚗, 𝙰𝚕𝚕 𝚁𝚒𝚐𝚑𝚒𝚝𝚜 𝚁𝚎𝚜𝚎𝚛𝚟𝚎𝚍   
-                        "𝚂𝚊𝚗𝚝𝚒𝚏𝚒𝚌𝚊𝚍𝚘 𝚜𝚎𝚊𝚗 𝚕𝚘𝚜 𝙾𝚛𝚊𝚒𝚜"`
+©𝚃𝚑𝚎 𝚂|𝙴 𝙵𝚘𝚞𝚗𝚍𝚊𝚝𝚒𝚘𝚗, 𝙰𝚕𝚕 𝚁𝚒𝚐𝚑𝚒𝚝𝚜 𝚁𝚎𝚜𝚎𝚛𝚟𝚎𝚍   
+                 "𝚂𝚊𝚗𝚝𝚒𝚏𝚒𝚌𝚊𝚍𝚘 𝚜𝚎𝚊𝚗 𝚕𝚘𝚜 𝙾𝚛𝚊𝚒𝚜"`
 			
 		
 			
@@ -356,7 +356,7 @@ break
 client.sendMessage(from, fs.readFileSync('./media/audio/Estupida.mp3'), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: fakeBot}})
 break	
 		
-		case 'S|E':
+		case 'S.E':
 client.sendMessage(from, fs.readFileSync('./media/audio/Bot.mp3'), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: fakeBot}})
 break	
 		
