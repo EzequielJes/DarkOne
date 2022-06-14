@@ -358,7 +358,20 @@ break
 		
 		case 'bot':
 client.sendMessage(from, fs.readFileSync('./media/audio/Bot.mp3'), audio, {quoted: mek, mimetype: 'audio/mp4', ptt: true, contextInfo: {mentionedJid: [sender], externalAdReply: fakeBot}})
-break	
+break
+		
+		case 'kick':
+if (!v.isGroup) return reply(mess.only.group)
+if (!isGroupAdmins) return reply(mess.only.admins)
+if (!isBotAdmin) return reply(mess.only.badmin)
+if (v.mentionUser[0] === undefined) return v.reply('Mencione a un usuario')
+if (v.sender === v.mentionUser[0]) return v.reply('No puede kickearse usted mismo')
+if (owner.includes(v.mentionUser[0].split('@')[0])) return v.reply('No es posible eliminar a un owner del bot')
+if (groupAdmins.includes(v.mentionUser[0])) return v.reply('No es posible eliminar a un administrador')
+client.groupParticipantsUpdate(v.chat, [v.mentionUser[0]], 'remove')
+	.then(x => v.reply(`Ha sido eliminado @${v.mentionUser[0].split('@')[0]} del grupo por @${senderNumber}`, {mentions: [v.mentionUser[0], v.sender]}))
+	.catch(e => v.reply(e))
+break
 		
 		
 		
