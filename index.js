@@ -361,16 +361,16 @@ client.sendMessage(from, fs.readFileSync('./media/audio/Bot.mp3'), audio, {quote
 break
 		
 		case 'kick':
-if (!v.isGroup) return reply(mess.only.group)
+if (!isGroup) return reply(mess.only.group)
 if (!isGroupAdmins) return reply(mess.only.admins)
 if (!isBotAdmin) return reply(mess.only.badmin)
-if (v.mentionUser[0] === undefined) return v.reply('Mencione a un usuario')
-if (v.sender === v.mentionUser[0]) return v.reply('No puede kickearse usted mismo')
-if (owner.includes(v.mentionUser[0].split('@')[0])) return v.reply('No es posible eliminar a un owner del bot')
-if (groupAdmins.includes(v.mentionUser[0])) return v.reply('No es posible eliminar a un administrador')
-client.groupParticipantsUpdate(v.chat, [v.mentionUser[0]], 'remove')
-	.then(x => v.reply(`Ha sido eliminado @${v.mentionUser[0].split('@')[0]} del grupo por @${senderNumber}`, {mentions: [v.mentionUser[0], v.sender]}))
-	.catch(e => v.reply(e))
+if (mentionUser[0] === undefined) return reply('Mencione a un usuario')
+if (sender === mentionUser[0]) return reply('No puede eliminar usted mismo')
+if (owner.includes(mentionUser[0].split('@')[0])) return reply('No es posible eliminar a un owner del bot')
+if (groupAdmins.includes(mentionUser[0])) return reply('No es posible eliminar a un administrador')
+client.groupParticipantsUpdate(mek, [mentionUser[0]], 'remove')
+	.then(x => reply(`Ha sido eliminado @${mentionUser[0].split('@')[0]} del grupo por @${senderNumber}`, {mentions: [mentionUser[0], sender]}))
+	.catch(e => reply(e))
 break
 		
 		
