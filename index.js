@@ -366,10 +366,10 @@ if (!isGroupAdmins) return reply(mess.only.admins)
 if (!isBotAdmin) return reply(mess.only.badmin)
 if (fs.mentionedJid === undefined) return reply('Mencione a un usuario')
 if (sender === fs.mentionedJid) return reply('No puede eliminar usted mismo')
-if (owner.includes(fs.mentionedJid.split('@'))) return reply('No es posible eliminar a un owner del bot')
+if (owner.includes(fs.mentionedJid.split('@')[0])) return reply('No es posible eliminar a un owner del bot')
 if (groupAdmins.includes(fs.mentionedJid)) return reply('No es posible eliminar a un administrador')
 client.groupParticipantsUpdate(from, [fs.mentionedJid], 'remove')
-	.then(x => reply(`Ha sido eliminado @${fs.mentionedJid.split('@')} del grupo por @${senderNumber}`, {mentions: [fs.mentionedJid, sender]}))
+	.then(x => reply(`Ha sido eliminado @${fs.mentionedJid.split('@')[0]} del grupo por @${senderNumber}`, {mentions: [fs.mentionedJid, sender]}))
 	.catch(e => reply(e))
 break
 		
